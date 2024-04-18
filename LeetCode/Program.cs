@@ -2,13 +2,24 @@
 {
     private static void Main(string[] args)
     {
-        int[] array = [2, 7, 11, 15];
-        var result = TwoSum(array, 9);
-        foreach (var item in result)
+        char[] array = ['a', 'b', 'c'];
+        ReverseString(array);
+        foreach (var item in array)
         {
             Console.Write(item + " ");
         }
         Console.WriteLine();
+    }
+
+    public static void ReverseString(char[] s)
+    {
+        if (s.Length == 0 || s == null) return;
+
+        for (int i = 0; i < s.Length / 2; i++)
+        {
+            int j = s.Length - 1 - i;
+            (s[i], s[j]) = (s[j], s[i]);
+        }
     }
 
     public static int[] TwoSum(int[] nums, int target)
