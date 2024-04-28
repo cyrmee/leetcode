@@ -3,12 +3,31 @@
     private static void Main(string[] args)
     {
         char[] array = ['a', 'b', 'c'];
-        ReverseString(array);
-        foreach (var item in array)
+        var num = 1534236469;
+        var result = Reverse(num);
+        Console.WriteLine(result);
+    }
+
+    public static int Reverse(int x)
+    {
+        if (x == 0 || x < int.MinValue || x > int.MaxValue) return 0;
+
+        var result = 0;
+        var isNumNegative = false;
+        if (x < 0)
         {
-            Console.Write(item + " ");
+            x *= -1;
+            isNumNegative = true;
+        };
+
+        while (x > 0)
+        {
+            var digit = x % 10;
+            x = Convert.ToInt32(Math.Floor(Convert.ToDouble(x) / 10));
+            result = result * 10 + digit;
         }
-        Console.WriteLine();
+
+        return isNumNegative ? result *= -1 : result;
     }
 
     public static void ReverseString(char[] s)
