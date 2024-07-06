@@ -4,10 +4,24 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var word1 = "abcd";
-        var word2 = "pqrs";
-        var result = MergeAlternately(word1, word2);
+        var words = "a good   example";
+        var result = ReverseWords(words);
         Console.WriteLine(result);
+    }
+
+
+    public static string ReverseWords(string s)
+    {
+        var result = new StringBuilder();
+
+        foreach (var word in s.Split())
+        {
+            if (string.IsNullOrWhiteSpace(word))
+                continue;
+            result.Insert(0, word + " ");
+        }
+
+        return result.ToString().Trim();
     }
 
     public static string MergeAlternately(string word1, string word2)
