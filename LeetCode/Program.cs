@@ -4,11 +4,26 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var words = "a good   example";
-        var result = ReverseWords(words);
-        Console.WriteLine(result);
+        int[] candies = [2, 3, 5, 1, 3];
+        var result = KidsWithCandies(candies, 3);
+        foreach (bool i in result)
+            Console.Write(i + " ");
     }
 
+    public static IList<bool> KidsWithCandies(int[] candies, int extraCandies)
+    {
+        var result = new List<bool>();
+        var candiesList = new List<int>(candies);
+
+        for (int i = 0; i < candies.Length; i++)
+        {
+            candiesList[i] += extraCandies;
+            result.Add(candies[i] + extraCandies >= candiesList.Max());
+            candiesList[i] -= extraCandies;
+        }
+
+        return result;
+    }
 
     public static string ReverseWords(string s)
     {
