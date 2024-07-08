@@ -4,10 +4,36 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        int[] candies = [2, 3, 5, 1, 3];
-        var result = KidsWithCandies(candies, 3);
-        foreach (bool i in result)
-            Console.Write(i + " ");
+        int[] flowerbed = [1, 0, 0, 0, 1];
+        var result = CanPlaceFlowers(flowerbed, 1);
+        Console.WriteLine(result);
+    }
+
+    public static bool CanPlaceFlowers(int[] flowerbed, int n)
+    {
+        int count = 0;
+        for (int i = 0; i < flowerbed.Length; i++)
+        {
+            if (flowerbed[i] == 0)
+            {
+                bool emptyPrev = (i == 0) || (flowerbed[i - 1] == 0);
+                bool emptyNext = (i == flowerbed.Length - 1) || (flowerbed[i + 1] == 0);
+
+                if (emptyPrev && emptyNext)
+                {
+                    flowerbed[i] = 1;
+                    count++;
+                    i++;
+
+                    if (count >= n)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return count >= n;
     }
 
     public static IList<bool> KidsWithCandies(int[] candies, int extraCandies)
