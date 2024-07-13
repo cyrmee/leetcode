@@ -4,9 +4,39 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        int[] flowerbed = [1, 0, 0, 0, 1];
-        var result = CanPlaceFlowers(flowerbed, 1);
+        char[] chars = ['a'];
+        var result = Compress(chars);
         Console.WriteLine(result);
+    }
+
+    public static int Compress(char[] chars)
+    {
+        int index = 0, count = 0;
+
+        while (index < chars.Length)
+        {
+            char currentChar = chars[index];
+            var start = index;
+
+            while (index < chars.Length && currentChar == chars[index])
+            {
+                index++;
+            }
+
+            chars[count++] = currentChar;
+
+            int repeatLength = index - start;
+
+            if (repeatLength > 1)
+            {
+                foreach (var character in repeatLength.ToString())
+                {
+                    chars[count++] = character;
+                }
+            }
+        }
+
+        return count;
     }
 
     public static bool CanPlaceFlowers(int[] flowerbed, int n)
