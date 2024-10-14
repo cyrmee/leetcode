@@ -35,10 +35,3 @@ bool increasingTriplet(vector<int> &nums)
 
     return false;
 }
-
-int main()
-{
-    vector<int> nums = {20, 100, 10, 12, 5, 13};
-    cout << increasingTriplet(nums) << endl;
-    return 0;
-}

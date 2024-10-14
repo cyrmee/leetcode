@@ -23,10 +23,3 @@ vector<int> productExceptSelf(vector<int> &nums)
 
     return products;
 }
-
-int main()
-{
-    vector<int> nums = {-1, 1, 0, -3, 3};
-    productExceptSelf(nums);
-    return 0;
-}
