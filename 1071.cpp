@@ -13,9 +13,3 @@ string gcdOfStrings(string str1, string str2)
 
     return str1.substr(0, gcdLength);
 }
-
-int main()
-{
-    cout << gcdOfStrings("ABABAB", "ABAB") << endl;
-    return 0;
-}
