@@ -34,9 +34,3 @@ string reverseVowels(string s)
 
     return s;
 }
-
-int main()
-{
-    cout << reverseVowels("IceCreAm") << endl;
-    return 0;
-}
