@@ -63,14 +63,3 @@ void moveZeroes(vector<int> &nums)
     //     cout << endl;
     // }
 }
-
-int main()
-{
-    vector<int> nums = {0, 1, 0, 3, 12};
-    moveZeroes(nums);
-
-    for (size_t i = 0; i < nums.capacity(); i++)
-    {
-        cout << nums[i] << " ";
-    }
-}
