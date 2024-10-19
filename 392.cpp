@@ -6,7 +6,7 @@ bool isSubsequence(string s, string t)
 {
     if (s.length() == 0)
         return true;
-        
+
     int sLength = s.length(),
         tLength = t.length(),
         sPointer = 0,
@@ -24,10 +24,4 @@ bool isSubsequence(string s, string t)
     }
 
     return false;
-}
-
-int main()
-{
-    cout << isSubsequence("ae", "aceaceace") << endl;
-    return 0;
 }
