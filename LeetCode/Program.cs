@@ -1,15 +1,17 @@
 ﻿using System.Text;
 
-internal class Program
+namespace LeetCode;
+
+internal abstract class Program
 {
-    private static void Main(string[] args)
+    private static void Main()
     {
         char[] chars = ['a'];
         var result = Compress(chars);
         Console.WriteLine(result);
     }
 
-    public static int Compress(char[] chars)
+    private static int Compress(char[] chars)
     {
         int index = 0, count = 0;
 
@@ -123,7 +125,7 @@ internal class Program
 
     public static int Reverse(int x)
     {
-        if (x == 0 || x < int.MinValue || x > int.MaxValue) return 0;
+        if (x is 0) return 0;
 
         var result = 0;
         var isNumNegative = false;
@@ -131,7 +133,7 @@ internal class Program
         {
             x *= -1;
             isNumNegative = true;
-        };
+        }
 
         while (x > 0)
         {
@@ -140,16 +142,16 @@ internal class Program
             result = result * 10 + digit;
         }
 
-        return isNumNegative ? result *= -1 : result;
+        return isNumNegative ? result * -1 : result;
     }
 
     public static void ReverseString(char[] s)
     {
-        if (s.Length == 0 || s == null) return;
+        if (s.Length is 0) return;
 
-        for (int i = 0; i < s.Length / 2; i++)
+        for (var i = 0; i < s.Length / 2; i++)
         {
-            int j = s.Length - 1 - i;
+            var j = s.Length - 1 - i;
             (s[i], s[j]) = (s[j], s[i]);
         }
     }
@@ -164,18 +166,20 @@ internal class Program
             {
                 return [value, i];
             }
+
             seen[nums[i]] = i;
         }
+
         throw new Exception("No two sum solution");
     }
 
     public static void MoveZeroes(int[] nums)
     {
         for (int i = 0; i < nums.Length; i++)
-            for (int j = i; j < nums.Length; j++)
-                if (nums[i] == 0)
-                    (nums[j], nums[i]) = (nums[i], nums[j]);
-                else break;
+        for (int j = i; j < nums.Length; j++)
+            if (nums[i] == 0)
+                (nums[j], nums[i]) = (nums[i], nums[j]);
+            else break;
     }
 
     public static int[] PlusOne(int[] digits)
@@ -201,6 +205,7 @@ internal class Program
                     break;
                 }
             }
+
             if (list[0] == 0)
                 return [.. list[1..]];
             return [.. list];
@@ -212,9 +217,8 @@ internal class Program
         var dictionary = new Dictionary<int, int>();
         foreach (int num in nums1)
         {
-            if (dictionary.ContainsKey(num))
+            if (!dictionary.TryAdd(num, 1))
                 dictionary[num]++;
-            else dictionary.Add(num, 1);
         }
 
         var list = new List<int>();
@@ -228,27 +232,26 @@ internal class Program
                     dictionary.Remove(num);
             }
         }
+
         return [.. list];
     }
 
     public static int SingleNumber(int[] nums)
     {
         var dictionary = new Dictionary<int, int>();
-        for (int i = 0; i < nums.Length; i++)
+        foreach (var t in nums)
         {
-            if (!dictionary.TryAdd(nums[i], 1))
-                dictionary[nums[i]]++;
+            if (!dictionary.TryAdd(t, 1))
+                dictionary[t]++;
         }
+
         return dictionary.First(x => x.Value == 1).Key;
     }
 
     public static bool ContainsDuplicate(int[] nums)
     {
         var dictionary = new Dictionary<int, int>();
-        for (int i = 0; i < nums.Length; i++)
-            if (!dictionary.TryAdd(nums[i], 1))
-                return true;
-        return false;
+        return nums.Any(t => !dictionary.TryAdd(t, 1));
     }
 
     public static void Rotate(int[] numbers, int k)

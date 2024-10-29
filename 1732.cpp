@@ -11,17 +11,10 @@ int largestAltitude(vector<int> &gain)
 
     for (int i = 0; i < points; i++)
     {
-        lastAltitude = lastAltitude + gain[i];
+        lastAltitude += gain[i];
         if (lastAltitude > largestAltitude)
             largestAltitude = lastAltitude;
     }
 
     return largestAltitude;
-}
-
-int main()
-{
-    vector<int> gain = {-4,-3,-2,-1,4,3,2};
-    cout << largestAltitude(gain) << endl;
-    return 0;
 }
