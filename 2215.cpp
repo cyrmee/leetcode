@@ -19,22 +19,3 @@ vector<vector<int>> findDifference(vector<int> &nums1, vector<int> &nums2)
 
     return {nums1Result, nums2Result};
 }
-
-int main()
-{
-    vector<int> nums1 = {1, 2, 3};
-    vector<int> nums2 = {2, 4, 6};
-
-    auto result = findDifference(nums1, nums2);
-
-    for (auto &&i : result)
-    {
-        for (auto &&j : i)
-        {
-            cout << j << " ";
-        }
-        cout << endl;
-    }
-
-    return 0;
-}
