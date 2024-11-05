@@ -23,14 +23,3 @@ bool uniqueOccurrences(vector<int> &arr)
 
     return true;
 }
-
-int main()
-{
-    vector<int> arr = {1, 2, 3};
-
-    auto result = uniqueOccurrences(arr);
-
-    cout << result << endl;
-
-    return 0;
-}
