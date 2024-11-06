@@ -25,12 +25,3 @@ string makeFancyString(string s)
 
     return result;
 }
-
-int main()
-{
-    auto result = makeFancyString("leeetcode");
-
-    cout << result << endl;
-
-    return 0;
-}
