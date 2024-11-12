@@ -28,7 +28,6 @@ int maxDepth(TreeNode *root)
         auto [node, depth] = s.top();
         s.pop();
 
-        cout << node->val << " ";
         maxDepth = max(maxDepth, depth);
 
         if (node->right)
