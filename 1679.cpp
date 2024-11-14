@@ -34,12 +34,3 @@ int maxOperations(vector<int> &nums, int k)
 
     return count;
 }
-
-int main()
-{
-    // 3,1,3,4,3
-    vector<int> nums = {1, 2, 3, 6};
-    cout << endl
-         << maxOperations(nums, 5) << endl;
-    return 0;
-}
