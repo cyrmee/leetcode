@@ -22,11 +22,3 @@ string removeStars(string s)
 
     return string(result.begin(), result.end());
 }
-
-int main()
-{
-    string s = "erase*****";
-    cout << endl
-         << removeStars(s) << endl;
-    return 0;
-}
