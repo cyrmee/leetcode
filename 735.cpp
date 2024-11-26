@@ -17,6 +17,7 @@ vector<int> asteroidCollision(vector<int> &asteroids)
         }
         else
         {
+            
             if (asteroid > 0 && collided.top() < 0)
             {
                 if (collided.top() * -1 < asteroid)
@@ -28,16 +29,16 @@ vector<int> asteroidCollision(vector<int> &asteroids)
     return result;
 }
 
-int main()
-{
-    vector<int> asteroids = {};
+// int main()
+// {
+//     vector<int> asteroids = {};
 
-    auto result = asteroidCollision(asteroids);
+//     auto result = asteroidCollision(asteroids);
 
-    for (auto &&i : result)
-    {
-        cout << i << "";
-    }
+//     for (auto &&i : result)
+//     {
+//         cout << i << "";
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
